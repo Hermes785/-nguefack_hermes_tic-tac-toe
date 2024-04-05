@@ -12,8 +12,10 @@ pipeline {
             }
         }
     stage('Test') {
+
     steps {
         echo 'Testing'
+    }
     }
         stage('Deploy/Deliver') {
             steps {
@@ -21,12 +23,6 @@ pipeline {
                 
                 
             }
-            post{
-                always{
-                    archiveArtifacts artifacts:'build/**/*.*', onlyIfSuccessful:true
-                }
-            }
         }
     }
-}
 }
