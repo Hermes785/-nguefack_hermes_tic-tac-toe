@@ -4,13 +4,20 @@ pipeline {
     tools {
         nodejs 'nodejs'
     }
+  
     stages {
         stage('Build') {
             steps {
+                echo('Building')
+                sh 'npm install'
+            }
+        }
+       stage('Test') {
+    steps {
         echo 'Testing'
         sh 'CI=true npm test -- --coverage'
     }
-    post {
+      post {
             always {
                 clover(cloverReportDir: 'coverage', cloverReportFileName: 'clover.xml',
                    // optional, default is: method=70, conditional=80, statement=80
@@ -22,14 +29,8 @@ pipeline {
                 )
             }
         }
-        }
-    stage('Test') {
-
-    steps {
-        echo 'Testing'
-    }
-    } 
-    stage('Deploy/Deliver') {
+}
+        stage('Deploy/Deliver') {
             steps {
                 echo 'Deploying'
                 sh 'npm run build'
