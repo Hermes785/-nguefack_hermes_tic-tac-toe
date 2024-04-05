@@ -2,10 +2,9 @@ pipeline {
     agent any
     
     tools {
-        echo 'Installing dependencies for this pipeline ...'
         nodejs 'nodejs'
     }
-    
+
     stages {
         stage('Build') {
             steps {
