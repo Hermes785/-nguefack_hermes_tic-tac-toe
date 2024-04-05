@@ -2,20 +2,21 @@ pipeline {
     agent any
     
     tools {
+        echo 'Installing dependencies for this pipeline ...'
         nodejs 'nodejs'
     }
   
     stages {
         stage('Build') {
             steps {
-                echo('Building')
+                echo 'Building'
                 sh 'npm install'
             }
         }
         
         stage('Test') {
             steps {
-                echo 'Testing'
+                echo 'Testing '
                 sh 'CI=true npm test -- --coverage'
             }
             
@@ -34,7 +35,7 @@ pipeline {
         
         stage('Deploy/Deliver') {
             steps {
-                echo 'Deploying'
+                echo 'Deploying '
                 sh 'npm run build'
             }
             
