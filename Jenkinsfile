@@ -15,7 +15,7 @@ pipeline {
         
         stage('Test') {
             steps {
-                echo 'Testing '
+                echo 'Running unit tests '
                 sh 'CI=true npm test -- --coverage'
             }
             
