@@ -10,7 +10,7 @@ pipeline {
         echo 'Testing'
         sh 'CI=true npm test -- --coverage'
     }
-      post {
+    post {
             always {
                 clover(cloverReportDir: 'coverage', cloverReportFileName: 'clover.xml',
                    // optional, default is: method=70, conditional=80, statement=80
