@@ -16,12 +16,17 @@ pipeline {
     steps {
         echo 'Testing'
     }
-    }
-        stage('Deploy/Deliver') {
+    } 
+    stage('Deploy/Deliver') {
             steps {
                 echo 'Deploying'
+                sh 'npm run build'
                 
-                
+            }
+            post{
+                always{
+                    archiveArtifacts artifacts:'build/**/*.*', onlyIfSuccessful:true
+                }
             }
         }
     }
