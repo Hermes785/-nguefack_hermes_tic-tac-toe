@@ -2,7 +2,7 @@
 
 \*Branches principales :
 
-main : Branche principale qui représente l'état de production de votre application. Les déploiements en production sont effectués à partir de cette branche.
+main : Branche principale qui représente l'état de production de l'application. Les déploiements en production sont effectués à partir de cette branche.
 develop : Branche de développement principal où le développement continu de nouvelles fonctionnalités a lieu. Les fonctionnalités sont fusionnées dans cette branche depuis les branches de fonctionnalités une fois qu'elles sont prêtes.
 
 Branche de fonctionnalité :
